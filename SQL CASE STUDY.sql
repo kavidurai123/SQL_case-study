@@ -14,7 +14,7 @@ insert into students values (109,'kavi','kavi@gmail.com',9876543211,'madurai','2
 insert into students values (110,'vino','vino@gmail.com',9876543211,'madurai','2025-05-18');
 
 __course
-drop table course CASCADE
+
 create table course (course_id int primary key,course_name text,course_fee int);
 insert into course values (1,'mba',25000),(2,'bca',30000),(3,'b.com',35000),(4,'data analytics',40000),
 (5,'mba',45000),(6,'excel',50000);
@@ -28,7 +28,7 @@ insert into enrollments values (1,101,1,'2025-01-10'),(2,102,2,'2025-02-15'),(3,
 (4,104,4,'2025-04-25'),(5,105,5,'2025-05-30'),(6,106,6,'2025-03-20');
 
 __payment
-drop table payment
+
 create table payment (payment_id int,payment_status text,payment_amount int,payment_date date,student_id int,course_id int,
 foreign key(student_id)references students(student_id), 
 foreign key (course_id)references course(course_id));
@@ -126,7 +126,7 @@ create index idx_students_id on enrollments(student_id);
 create index idx_course_id on enrollments(course_id);
 select* from enrollments
 
-drop table enrollments CASCADE
+
 __question_20__
 select s.student_name, c.course_name, p.payment_amount,case
 when payment_status='paid' then 'paid'
